@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Phoenix.Tech Inc • Liquid Glass Edge | Ultimate Toolchain & Pricing</title>
+  <title>Phoenix28.Tech Inc • Edge Ecosystem | Ultimate Pricing & Toolchain</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome 6 -->
@@ -19,109 +19,87 @@
 
     body {
       font-family: 'Inter', 'Space Grotesk', system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 0% 0%, #f0f7ea 0%, #e2ecd9 100%);
+      background: radial-gradient(circle at 10% 20%, #eef5e8 0%, #d9e8cf 100%);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* ========= LIQUID GLASS EFFECT - MORPHING DYNAMIC BACKGROUND ========= */
-    .liquid-glass {
-      position: relative;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      transition: all 0.4s cubic-bezier(0.23, 0.97, 0.38, 1.02);
-    }
-    
-    /* Liquid glass animated gradient overlay */
-    .liquid-glass::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(
-        125deg,
-        rgba(34, 197, 94, 0.15),
-        rgba(16, 185, 129, 0.25),
-        rgba(5, 150, 105, 0.15),
-        rgba(34, 197, 94, 0.2)
-      );
-      background-size: 300% 300%;
-      border-radius: inherit;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      animation: liquidFlow 6s ease infinite;
-    }
-    
-    .liquid-glass:hover::before {
-      opacity: 1;
-    }
-    
-    @keyframes liquidFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    /* Liquid ripple effect on cards */
-    .liquid-ripple {
-      position: relative;
+    /* ========= PARALLAX BACKGROUND WITH FIRE PHOENIX LOGOS ========= */
+    .parallax-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
       overflow: hidden;
     }
-    
-    .liquid-ripple::after {
-      content: '';
+
+    .phoenix-deco {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(34, 197, 94, 0.25), transparent);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-      pointer-events: none;
+      font-size: clamp(2.5rem, 8vw, 7rem);
+      opacity: 0.1;
+      transition: all 0.2s ease;
+      animation: floatDrift 18s infinite alternate ease-in-out;
+      filter: drop-shadow(0 0 6px rgba(255, 60, 0, 0.3));
+      color: transparent;
+      background: linear-gradient(135deg, #ff3a00, #f0a500, #dc2626, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(255, 60, 0, 0.2);
     }
-    
-    .liquid-ripple:active::after {
-      width: 300px;
-      height: 300px;
+
+    /* fire & blue gradient for phoenix logo decos */
+    .phoenix-deco i, .phoenix-deco svg {
+      background: linear-gradient(145deg, #ff4d1e, #ffb347, #3b82f6, #1e3a8a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
-    /* Liquid glass card with morphing border */
-    .liquid-card {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(34, 197, 94, 0.25);
+
+    @keyframes floatDrift {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      100% { transform: translate(40px, -30px) rotate(8deg) scale(1.08); }
+    }
+
+    @keyframes driftReverse {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(-35px, 25px) rotate(-6deg) scale(1.05); }
+    }
+
+    .phoenix-deco:nth-child(odd) { animation: floatDrift 22s infinite alternate; }
+    .phoenix-deco:nth-child(even) { animation: driftReverse 26s infinite alternate; }
+
+    /* IOS liquid glass premium */
+    .ios-glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 0.5px solid rgba(34, 197, 94, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+
+    .card-ios {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 0.5px solid rgba(34, 197, 94, 0.3);
       transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      position: relative;
+      border-radius: 42px 18px 42px 18px;
     }
-    
-    .liquid-card:hover {
-      border-color: rgba(34, 197, 94, 0.65);
-      transform: translateY(-4px);
-      box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(34, 197, 94, 0.2);
+    .card-ios:hover {
+      transform: translateY(-5px);
+      border-color: rgba(34, 197, 94, 0.6);
+      box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(34, 197, 94, 0.25);
+      background: rgba(255, 255, 255, 0.9);
     }
-    
-    /* Liquid shimmer animation */
-    @keyframes liquidShimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    
-    .shimmer-liquid {
-      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.08), transparent);
-      background-size: 200% 100%;
-      animation: liquidShimmer 3s infinite;
-    }
-    
-    /* Enhanced asymmetric edges with liquid curves */
+
+    /* asymmetric edges collection */
     .edge-a { border-radius: 42px 18px 42px 18px; }
     .edge-b { border-radius: 24px 48px 24px 48px; }
     .edge-c { border-radius: 32px 12px 52px 12px; }
@@ -130,353 +108,232 @@
     .edge-f { border-radius: 18px 44px 18px 44px; }
     .edge-g { border-radius: 28px 52px 18px 52px; }
     .edge-hero { border-radius: 56px 24px 56px 24px; }
-    .edge-liquid { border-radius: 38px 22px 48px 18px; }
-    
-    /* Glass premium base */
-    .glass-edge {
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(34, 197, 94, 0.28);
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
+
+    /* shimmer premium */
+    @keyframes shimmerMove {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
-    
-    .glass-edge:hover {
-      border-color: rgba(34, 197, 94, 0.55);
-      box-shadow: 0 28px 42px -16px rgba(0, 0, 0, 0.12);
+    .shimmer-soft {
+      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.08), transparent);
+      background-size: 200% 100%;
+      animation: shimmerMove 4s infinite;
     }
-    
-    /* Row styling */
-    .row-signature {
+
+    /* row hover effect */
+    .row-premium {
       transition: all 0.2s;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.45);
       border-bottom: 1px solid rgba(34, 197, 94, 0.12);
     }
-    .row-signature:hover {
-      background: rgba(34, 197, 94, 0.05);
-      border-bottom-color: rgba(34, 197, 94, 0.4);
+    .row-premium:hover {
+      background: rgba(34, 197, 94, 0.07);
+      border-bottom-color: rgba(34, 197, 94, 0.5);
     }
-    
-    /* Gradient text */
+
     .gradient-emerald {
       background: linear-gradient(135deg, #15803d, #2b9348, #059669);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
-    
-    /* Floating animation */
-    @keyframes float-liquid {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-5px) rotate(1deg); }
+
+    /* floating pulse for badge */
+    @keyframes softPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
     }
-    .float-icon {
-      animation: float-liquid 3.5s ease-in-out infinite;
+    .pulse-dot {
+      animation: softPulse 1.8s ease-in-out infinite;
     }
-    
-    /* Tech pill refined liquid style */
-    .tech-pill {
+
+    .tech-badge {
       background: rgba(34, 197, 94, 0.12);
       backdrop-filter: blur(4px);
-      border-radius: 28px 12px 28px 12px;
-      transition: all 0.25s;
-      border: 0.5px solid rgba(34, 197, 94, 0.25);
-      font-weight: 500;
+      border-radius: 28px 10px 28px 10px;
+      transition: all 0.2s;
+      border: 0.5px solid rgba(34, 197, 94, 0.3);
     }
-    .tech-pill:hover {
+    .tech-badge:hover {
       background: rgba(34, 197, 94, 0.25);
-      transform: translateX(4px) translateY(-1px);
+      transform: translateX(3px);
     }
-    
-    /* Badge asymmetric */
-    .badge-asym {
-      border-radius: 20px 10px 20px 10px;
-    }
-    
-    /* Premium header */
-    .premium-header th {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-    }
-    
-    /* Liquid glass container for table */
-    .liquid-container {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-    }
-    
-    /* Tool category badge new */
-    .tool-category-badge {
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.08));
-      border-radius: 24px 10px 24px 10px;
-      padding: 2px 10px;
-      font-size: 10px;
-      font-weight: 600;
-    }
-    
-    /* Responsive */
+
+    /* 8K fluid responsive */
     @media (max-width: 768px) {
-      .edge-a, .edge-b, .edge-c, .edge-d, .edge-e, .edge-f, .edge-g, .edge-hero, .edge-liquid {
+      .edge-a, .edge-b, .edge-c, .edge-d, .edge-e, .edge-f, .edge-g, .edge-hero {
         border-radius: 28px 16px 28px 16px;
       }
+      .card-ios {
+        backdrop-filter: blur(28px);
+      }
     }
-    
-    /* Custom scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #e2e8e0; border-radius: 20px; }
+
+    /* premium glass table container */
+    .glass-table-wrap {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 32px 16px 32px 16px;
+      overflow: hidden;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #e9f0e3; border-radius: 20px; }
     ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 20px; }
-    
-    /* Liquid glass badge animation */
-    @keyframes pulseLiquid {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
+
+    /* floating action for WhatsApp */
+    .whatsapp-float {
+      transition: all 0.25s ease;
     }
-    .liquid-pulse {
-      animation: pulseLiquid 2s ease-in-out infinite;
+    .whatsapp-float:hover {
+      transform: scale(1.02);
+      background: rgba(34, 197, 94, 0.2);
     }
   </style>
 </head>
 <body>
 
-  <main class="max-w-7xl mx-auto px-5 sm:px-6 py-8 md:py-12">
-    
-    <!-- ========= HERO WITH LIQUID GLASS EFFECT ========= -->
-    <div class="liquid-card edge-hero p-7 md:p-9 mb-10 shimmer-liquid transition-all duration-300">
-      <div class="flex flex-col lg:flex-row justify-between items-center gap-7">
-        <div class="text-center lg:text-left">
-          <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
-            <i class="fab fa-phoenix-framework text-5xl gradient-emerald float-icon"></i>
-            <div>
-              <span class="text-[11px] font-black tracking-wider text-green-800 bg-white/90 backdrop-blur-sm px-4 py-1.5 badge-asym border border-green-200 shadow-sm">
-                <i class="fas fa-droplet mr-1 text-green-500"></i> Liquid Glass Edition · Pius Maina
-              </span>
-            </div>
-          </div>
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-            Web <span class="gradient-emerald">Price List</span>
-          </h1>
-          <p class="text-gray-600 mt-4 max-w-xl text-base font-medium leading-relaxed">Official rates by Pius Maina · Liquid glass interface · Asymmetric edge design · 50+ tools ecosystem</p>
-        </div>
-        <div class="flex flex-col items-center lg:items-end gap-3">
-          <div class="flex items-center gap-2 bg-white/90 border border-green-200 px-5 py-2.5 badge-asym shadow-sm backdrop-blur-sm">
-            <span class="text-2xl font-black gradient-emerald">KSh</span>
-            <span class="text-sm font-semibold text-gray-700">Kenya Shillings</span>
-            <span class="ml-1 w-2 h-2 rounded-full bg-green-500 liquid-pulse"></span>
-          </div>
-          <div class="flex items-center gap-2 text-xs text-gray-600 bg-white/80 rounded-full px-4 py-1.5 badge-asym border border-green-100">
-            <i class="fas fa-bezier-curve text-green-600 text-xs"></i>
-            <span>Liquid glass UI · Direct KSh rates · Zero forex</span>
+<!-- PARALLAX BACKGROUND WITH FIRE & BLUE PHOENIX LOGOS -->
+<div class="parallax-bg">
+  <div class="phoenix-deco" style="top: 8%; left: -2%; opacity: 0.16;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="bottom: 15%; right: 3%; opacity: 0.14; font-size: 6rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="top: 40%; left: 85%; opacity: 0.12; font-size: 5rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="top: 70%; left: 12%; opacity: 0.1; font-size: 4.5rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="top: 15%; right: 15%; opacity: 0.13; font-size: 5.2rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="bottom: 30%; left: 45%; opacity: 0.09; font-size: 7rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="top: 85%; right: 40%; opacity: 0.11; font-size: 4rem;"><i class="fab fa-phoenix-framework"></i></div>
+  <div class="phoenix-deco" style="top: 5%; left: 55%; opacity: 0.08; font-size: 4.2rem;"><i class="fab fa-phoenix-framework"></i></div>
+</div>
+
+<main class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-8 md:py-12">
+  
+  <!-- HERO SECTION - iOS glass effect -->
+  <div class="card-ios edge-hero p-7 md:p-9 mb-10 shimmer-soft transition-all duration-300">
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-7">
+      <div class="text-center lg:text-left">
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
+          <!-- logo without background (no bg) -->
+          <i class="fab fa-phoenix-framework text-5xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-blue-500 drop-shadow-md"></i>
+          <div>
+            <span class="text-[11px] font-black tracking-wider text-green-800 bg-white/70 backdrop-blur-md px-4 py-1.5 edge-d border border-green-200/60 shadow-sm">
+              <i class="fas fa-bezier-curve mr-1 text-green-600"></i> Edge Architecture · Pius Maina
+            </span>
           </div>
         </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900">
+          Web <span class="gradient-emerald">Price List</span>
+        </h1>
+        <p class="text-gray-600 mt-4 max-w-xl text-base font-medium leading-relaxed">Official rates by Pius Maina · iOS glass UI · Asymmetric edge design · 55+ tools ecosystem</p>
+      </div>
+      <div class="flex flex-col items-center lg:items-end gap-3">
+        <div class="flex items-center gap-2 bg-white/80 border border-green-200 px-5 py-2.5 edge-d shadow-sm backdrop-blur-md">
+          <span class="text-2xl font-black gradient-emerald">KSh</span>
+          <span class="text-sm font-semibold text-gray-700">Kenya Shillings</span>
+          <span class="ml-1 w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-gray-600 bg-white/70 rounded-full px-4 py-1.5 edge-d border border-green-100">
+          <i class="fas fa-apple text-green-700 text-xs"></i>
+          <span>iOS glass interface · Direct KSh · Zero forex</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING TABLE WITH GLASS CONTAINER -->
+  <div class="glass-table-wrap edge-b overflow-hidden transition-all duration-300">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-gradient-to-r from-green-50/80 to-white/70">
+          <tr class="border-b border-green-200/50">
+            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-globe mr-2 text-green-600"></i> Website Type</th>
+            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-tag mr-2 text-green-600"></i> Price Range (KSH)</th>
+            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden sm:table-cell"><i class="fas fa-crown mr-2 text-green-600"></i> Premium Features</th>
+            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden lg:table-cell"><i class="fas fa-calendar-week mr-2 text-green-600"></i> Delivery</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-green-100/40">
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-landmark text-green-500 w-5"></i><span>One-page landing page</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 10,000 – 35,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-simple text-green-500 mr-1"></i> High-conversion UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–7 days</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-building text-green-500 w-5"></i><span>Basic 5-page business</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 20,000 – 60,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-mobile-alt text-green-500 mr-1"></i> Responsive + CMS ready</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–2 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-palette text-green-500 w-5"></i><span>Small business + custom design</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 100,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-drafting-compass text-green-500 mr-1"></i> Bespoke UX/UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">2–4 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-blog text-green-500 w-5"></i><span>Blog / content website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 25,000 – 80,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-cms text-green-500 mr-1"></i> WordPress / headless</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–3 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-shopping-cart text-green-500 w-5"></i><span>Basic e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 70,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-credit-card text-green-500 mr-1"></i> M-Pesa, cards</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–5 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-store text-green-500 w-5"></i><span>Medium e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 70,000 – 150,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-boxes text-green-500 mr-1"></i> 200+ products, inventory</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">5–8 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cogs text-green-500 w-5"></i><span>Advanced e‑commerce / custom</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 150,000 – 500,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-plug text-green-500 mr-1"></i> APIs, automation</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">8–12 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-chart-line text-green-500 w-5"></i><span>Corporate / company website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 60,000 – 200,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-pie text-green-500 mr-1"></i> Investor portals</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">4–8 weeks</td></tr>
+          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cloud-upload-alt text-green-500 w-5"></i><span>Large enterprise platform</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 200,000 – 1,000,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-server text-green-500 mr-1"></i> Scalable microservices</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–6 months</td></tr>
+        </tbody>
+       </table>
+    </div>
+    <div class="border-t border-green-200/50 bg-gradient-to-r from-green-50/30 to-white/70 p-5 md:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex flex-wrap gap-2 justify-center">
+        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-shield-alt"></i> 45‑day support</span>
+        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-mobile-alt"></i> All devices</span>
+        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-search"></i> SEO ready</span>
+        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-bezier-curve"></i> Asymmetric Edge</span>
+      </div>
+      <a href="https://wa.me/254752953500?text=Hello%20Pius%2C%20I'm%20interested%20in%20your%20web%20development%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-float flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2 edge-d border border-green-300 hover:bg-green-50 transition-all cursor-pointer">
+        <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+        <span class="font-mono text-green-800 font-bold text-sm">Chat with Pius Maina</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- TOOLCHAIN SECTION: 55+ TECHNOLOGIES -->
+  <div class="mt-14">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-7">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-800 flex items-center gap-2">
+          <i class="fas fa-cubes gradient-emerald text-3xl"></i> 
+          <span>Full‑Stack Toolchain · <span class="gradient-emerald">55+ Technologies</span></span>
+        </h2>
+        <p class="text-gray-500 text-sm mt-1">Expanded ecosystem · iOS glass components · Edge mastery</p>
+      </div>
+      <div class="bg-white/70 backdrop-blur-md edge-d px-4 py-2 text-xs font-mono text-green-700 border border-green-200">
+        <i class="fas fa-microchip mr-1"></i> 55+ integrated tools
       </div>
     </div>
 
-    <!-- ========= MAIN PRICING TABLE WITH LIQUID CONTAINER ========= -->
-    <div class="liquid-container edge-b overflow-hidden transition-all duration-300">
-      <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
-          <thead class="premium-header">
-            <tr class="border-b border-green-200/60 bg-gradient-to-r from-green-50/70 to-white/80">
-              <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-globe mr-2 text-green-600"></i> Website Type</th>
-              <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-tag mr-2 text-green-600"></i> Price Range (KSH)</th>
-              <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden sm:table-cell"><i class="fas fa-crown mr-2 text-green-600"></i> Premium Features</th>
-              <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden lg:table-cell"><i class="fas fa-calendar-week mr-2 text-green-600"></i> Delivery</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-green-100/50">
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-landmark text-green-500 w-5"></i><span>One-page landing page</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 10,000 – 35,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-simple text-green-500 mr-1"></i> High-conversion UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–7 days</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-building text-green-500 w-5"></i><span>Basic 5-page business</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 20,000 – 60,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-mobile-alt text-green-500 mr-1"></i> Responsive + CMS ready</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–2 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-palette text-green-500 w-5"></i><span>Small business + custom design</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 100,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-drafting-compass text-green-500 mr-1"></i> Bespoke UX/UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">2–4 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-blog text-green-500 w-5"></i><span>Blog / content website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 25,000 – 80,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-cms text-green-500 mr-1"></i> WordPress / headless</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–3 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-shopping-cart text-green-500 w-5"></i><span>Basic e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 70,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-credit-card text-green-500 mr-1"></i> M-Pesa, cards</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–5 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-store text-green-500 w-5"></i><span>Medium e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 70,000 – 150,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-boxes text-green-500 mr-1"></i> 200+ products, inventory</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">5–8 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cogs text-green-500 w-5"></i><span>Advanced e‑commerce / custom</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 150,000 – 500,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-plug text-green-500 mr-1"></i> APIs, automation</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">8–12 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-chart-line text-green-500 w-5"></i><span>Corporate / company website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 60,000 – 200,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-pie text-green-500 mr-1"></i> Investor portals</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">4–8 weeks</td></tr>
-            <tr class="row-signature"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cloud-upload-alt text-green-500 w-5"></i><span>Large enterprise platform</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 200,000 – 1,000,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-server text-green-500 mr-1"></i> Scalable microservices</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–6 months</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="border-t border-green-200/60 bg-gradient-to-r from-green-50/40 to-white/80 p-5 md:p-6 flex flex-col md:flex-row justify-between items-center gap-4 edge-footer-special">
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span class="bg-white/90 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-shield-alt"></i> 30‑day support</span>
-          <span class="bg-white/90 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-mobile-alt"></i> All devices</span>
-          <span class="bg-white/90 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-search"></i> SEO ready</span>
-          <span class="bg-white/90 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-droplet"></i> Liquid glass UI</span>
-        </div>
-        <div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 badge-asym border border-green-200">
-          <i class="fab fa-whatsapp text-green-600 text-lg"></i>
-          <span class="font-mono text-green-700 font-bold text-sm">WhatsApp Pius Maina</span>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      <div class="card-ios edge-c p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fab fa-react text-3xl text-sky-500"></i><i class="fab fa-vuejs text-2xl text-emerald-500"></i><i class="fab fa-angular text-2xl text-red-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Frontend Universe</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">React 19</span><span class="tech-badge text-xs px-3 py-1.5">Vue 3</span><span class="tech-badge text-xs px-3 py-1.5">Next.js 15</span><span class="tech-badge text-xs px-3 py-1.5">SvelteKit</span><span class="tech-badge text-xs px-3 py-1.5">Astro</span><span class="tech-badge text-xs px-3 py-1.5">Remix</span></div><p class="text-gray-500 text-xs mt-3">SPA · SSR · ISR · Edge rendering</p></div>
+      <div class="card-ios edge-d p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fab fa-node-js text-3xl text-green-600"></i><i class="fas fa-database text-2xl text-amber-600"></i></div><h3 class="font-bold text-gray-800 text-lg">Backend & Databases</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">Node.js</span><span class="tech-badge text-xs px-3 py-1.5">FastAPI</span><span class="tech-badge text-xs px-3 py-1.5">PostgreSQL</span><span class="tech-badge text-xs px-3 py-1.5">MongoDB</span><span class="tech-badge text-xs px-3 py-1.5">Prisma</span><span class="tech-badge text-xs px-3 py-1.5">Supabase</span></div><p class="text-gray-500 text-xs mt-3">REST · GraphQL · WebSockets</p></div>
+      <div class="card-ios edge-e p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fas fa-shopping-cart text-3xl text-green-600"></i><i class="fab fa-stripe text-2xl text-indigo-400"></i></div><h3 class="font-bold text-gray-800 text-lg">Payments & Commerce</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">M-Pesa API</span><span class="tech-badge text-xs px-3 py-1.5">Stripe</span><span class="tech-badge text-xs px-3 py-1.5">WooCommerce</span><span class="tech-badge text-xs px-3 py-1.5">Medusa.js</span></div><p class="text-gray-500 text-xs mt-3">Multi-currency · Recurring billing</p></div>
+      <div class="card-ios edge-f p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fas fa-cloud-upload-alt text-3xl text-sky-600"></i><i class="fab fa-docker text-2xl text-blue-400"></i></div><h3 class="font-bold text-gray-800 text-lg">DevOps & Cloud</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">AWS/Azure</span><span class="tech-badge text-xs px-3 py-1.5">Vercel</span><span class="tech-badge text-xs px-3 py-1.5">Kubernetes</span><span class="tech-badge text-xs px-3 py-1.5">GH Actions</span></div><p class="text-gray-500 text-xs mt-3">CI/CD · Auto-scaling</p></div>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
+      <div class="card-ios edge-g p-4 flex items-center gap-4"><i class="fab fa-react-native text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">Mobile & Cross‑Platform</p><p class="text-xs text-gray-500">React Native · Flutter · PWA · Capacitor</p></div></div>
+      <div class="card-ios edge-c p-4 flex items-center gap-4"><i class="fas fa-brain text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">AI/ML & Analytics</p><p class="text-xs text-gray-500">OpenAI API · LangChain · GA4 · Mixpanel</p></div></div>
+      <div class="card-ios edge-d p-4 flex items-center gap-4"><i class="fas fa-cms text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">CMS & Headless</p><p class="text-xs text-gray-500">WordPress · Sanity · Strapi · Contentful</p></div></div>
+    </div>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-apple text-green-600"></i> iOS Glass UI</div>
+      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cube"></i> WebAssembly Ready</div>
+      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cloud-moon"></i> Edge Functions</div>
+    </div>
+  </div>
 
-    <!-- ========= EXPANDED TOOLS SECTION: 50+ TECHNOLOGIES, LIQUID GLASS STYLE ========= -->
-    <div class="mt-14">
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-7">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-800 flex items-center gap-2">
-            <i class="fas fa-droplet gradient-emerald text-3xl"></i> 
-            <span>Liquid Toolchain & <span class="gradient-emerald">55+ Technologies</span></span>
-          </h2>
-          <p class="text-gray-500 text-sm mt-1">Expanded ecosystem · Full-stack mastery · Liquid glass components</p>
-        </div>
-        <div class="bg-white/70 backdrop-blur-sm edge-d px-4 py-2 text-xs font-mono text-green-700 border border-green-200">
-          <i class="fas fa-microchip mr-1"></i> 55+ integrated tools
-        </div>
-      </div>
-      
-      <!-- Row 1: Core frontend + frameworks (enhanced) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <div class="liquid-card edge-c p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fab fa-react text-3xl text-sky-500"></i><i class="fab fa-vuejs text-2xl text-emerald-500"></i><i class="fab fa-angular text-2xl text-red-500"></i><i class="fab fa-svelte text-2xl text-orange-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">Frontend Universe</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">React 19</span><span class="tech-pill text-xs px-3 py-1.5">Vue 3</span><span class="tech-pill text-xs px-3 py-1.5">Angular 17</span><span class="tech-pill text-xs px-3 py-1.5">SvelteKit</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Next.js 15</span><span class="tech-pill text-xs px-3 py-1.5">Nuxt 3</span><span class="tech-pill text-xs px-3 py-1.5">Astro</span><span class="tech-pill text-xs px-3 py-1.5">Remix</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">SPA · SSR · ISR · Edge rendering</p>
-        </div>
-        
-        <div class="liquid-card edge-d p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fab fa-node-js text-3xl text-green-600"></i><i class="fas fa-database text-2xl text-amber-600"></i><i class="fas fa-cloud text-2xl text-sky-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">Backend & Databases</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">Node.js</span><span class="tech-pill text-xs px-3 py-1.5">Python/FastAPI</span><span class="tech-pill text-xs px-3 py-1.5">Go/Gin</span>
-            <span class="tech-pill text-xs px-3 py-1.5">PostgreSQL</span><span class="tech-pill text-xs px-3 py-1.5">MySQL</span><span class="tech-pill text-xs px-3 py-1.5">MongoDB</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Prisma</span><span class="tech-pill text-xs px-3 py-1.5">Supabase</span><span class="tech-pill text-xs px-3 py-1.5">Redis</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">REST · GraphQL · WebSockets · Serverless</p>
-        </div>
-        
-        <div class="liquid-card edge-e p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fas fa-shopping-cart text-3xl text-green-600"></i><i class="fab fa-stripe text-2xl text-indigo-400"></i><i class="fas fa-coins text-2xl text-yellow-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">Payments & Commerce</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">M-Pesa API</span><span class="tech-pill text-xs px-3 py-1.5">Stripe Connect</span><span class="tech-pill text-xs px-3 py-1.5">PayPal</span>
-            <span class="tech-pill text-xs px-3 py-1.5">WooCommerce</span><span class="tech-pill text-xs px-3 py-1.5">Medusa.js</span><span class="tech-pill text-xs px-3 py-1.5">Shopify</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Snipcart</span><span class="tech-pill text-xs px-3 py-1.5">PesaPal</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">Multi-currency · Recurring billing · Fraud protection</p>
-        </div>
-        
-        <div class="liquid-card edge-f p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fas fa-cloud-upload-alt text-3xl text-sky-600"></i><i class="fab fa-docker text-2xl text-blue-400"></i><i class="fas fa-infinity text-2xl text-purple-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">DevOps & Cloud</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">AWS/Azure/GCP</span><span class="tech-pill text-xs px-3 py-1.5">Vercel</span><span class="tech-pill text-xs px-3 py-1.5">Cloudflare</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Kubernetes</span><span class="tech-pill text-xs px-3 py-1.5">Terraform</span><span class="tech-pill text-xs px-3 py-1.5">GitHub Actions</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">CI/CD · Auto-scaling · Monitoring</p>
-        </div>
-      </div>
-      
-      <!-- Row 2: Additional specialized tools (Mobile, AI/ML, CMS, Testing) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <div class="liquid-card edge-g p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fab fa-android text-2xl text-green-600"></i><i class="fab fa-apple text-2xl text-gray-700"></i><i class="fas fa-mobile-alt text-2xl text-teal-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">Mobile & Cross-Platform</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">React Native</span><span class="tech-pill text-xs px-3 py-1.5">Flutter</span><span class="tech-pill text-xs px-3 py-1.5">Ionic</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Expo</span><span class="tech-pill text-xs px-3 py-1.5">Capacitor</span><span class="tech-pill text-xs px-3 py-1.5">PWA Studio</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">iOS · Android · Progressive Web Apps</p>
-        </div>
-        
-        <div class="liquid-card edge-c p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fas fa-brain text-2xl text-purple-500"></i><i class="fas fa-chart-line text-2xl text-blue-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">AI/ML & Analytics</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">OpenAI API</span><span class="tech-pill text-xs px-3 py-1.5">TensorFlow</span><span class="tech-pill text-xs px-3 py-1.5">LangChain</span>
-            <span class="tech-pill text-xs px-3 py-1.5">GA4</span><span class="tech-pill text-xs px-3 py-1.5">Mixpanel</span><span class="tech-pill text-xs px-3 py-1.5">Hotjar</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">Predictive insights · AI assistants · Heatmaps</p>
-        </div>
-        
-        <div class="liquid-card edge-d p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fas fa-cms text-2xl text-orange-500"></i><i class="fab fa-wordpress text-2xl text-blue-600"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">CMS & Headless</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">WordPress</span><span class="tech-pill text-xs px-3 py-1.5">Sanity</span><span class="tech-pill text-xs px-3 py-1.5">Strapi</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Contentful</span><span class="tech-pill text-xs px-3 py-1.5">Prismic</span><span class="tech-pill text-xs px-3 py-1.5">Ghost</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">Headless · Hybrid · Enterprise CMS</p>
-        </div>
-        
-        <div class="liquid-card edge-e p-5 transition-all hover:scale-[1.01]">
-          <div class="flex items-center gap-3 mb-3"><i class="fas fa-vial text-2xl text-red-400"></i><i class="fas fa-bug text-2xl text-amber-500"></i></div>
-          <h3 class="font-bold text-gray-800 text-lg">Testing & Quality</h3>
-          <div class="flex flex-wrap gap-2 mt-3">
-            <span class="tech-pill text-xs px-3 py-1.5">Jest</span><span class="tech-pill text-xs px-3 py-1.5">Playwright</span><span class="tech-pill text-xs px-3 py-1.5">Cypress</span>
-            <span class="tech-pill text-xs px-3 py-1.5">Vitest</span><span class="tech-pill text-xs px-3 py-1.5">Lighthouse CI</span><span class="tech-pill text-xs px-3 py-1.5">Sentry</span>
-          </div>
-          <p class="text-gray-500 text-xs mt-3">E2E · Unit · Performance monitoring</p>
-        </div>
-      </div>
-      
-      <!-- Row 3: Additional emerging tools & design systems -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
-        <div class="liquid-card edge-f p-4 flex items-center gap-4">
-          <i class="fas fa-palette text-2xl gradient-emerald"></i>
-          <div><p class="font-bold text-gray-800 text-sm">Design Systems & Prototyping</p><p class="text-xs text-gray-500">Figma · Framer · Storybook · Zeroheight · Adobe XD</p></div>
-        </div>
-        <div class="liquid-card edge-g p-4 flex items-center gap-4">
-          <i class="fas fa-chart-simple text-2xl gradient-emerald"></i>
-          <div><p class="font-bold text-gray-800 text-sm">SEO & Marketing Stack</p><p class="text-xs text-gray-500">SEMrush · Ahrefs · Google Search Console · Yoast · Screaming Frog</p></div>
-        </div>
-        <div class="liquid-card edge-c p-4 flex items-center gap-4">
-          <i class="fas fa-shield-haltered text-2xl gradient-emerald"></i>
-          <div><p class="font-bold text-gray-800 text-sm">Security & Compliance</p><p class="text-xs text-gray-500">Cloudflare WAF · OWASP · SSL/TLS · GDPR/CCPA · SOC2</p></div>
-        </div>
-      </div>
-      
-      <!-- Bonus: Real-time tools badge -->
-      <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <div class="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2">
-          <i class="fas fa-droplet text-green-500 animate-pulse"></i> Liquid Glass UI
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2">
-          <i class="fas fa-cube"></i> WebAssembly Ready
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2">
-          <i class="fas fa-cloud-moon"></i> Edge Functions
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2">
-          <i class="fas fa-microphone"></i> Voice AI Integration
-        </div>
-      </div>
-    </div>
+  <!-- INFO CARDS & GUARANTEE -->
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-7">
+    <div class="card-ios edge-a p-6 flex items-start gap-5"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-100 to-white flex items-center justify-center border border-green-200"><i class="fas fa-certificate text-green-600 text-2xl"></i></div><div><h3 class="font-extrabold text-gray-900 text-lg">Phoenix28.Tech Edge Guarantee</h3><p class="text-gray-600 text-sm leading-relaxed">✓ 45-day premium support • ✓ Asymmetric edge UI • ✓ Edge-crafted security • ✓ 55+ tools integration</p></div></div>
+    <div class="card-ios edge-e p-6 flex items-start gap-5"><div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-green-200"><i class="fab fa-phoenix-framework text-green-600 text-2xl bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent"></i></div><div><h3 class="font-extrabold text-gray-900">Pius Maina · Principal Architect</h3><p class="text-gray-600 text-sm">Phoenix28.Tech Inc • 12+ years full‑stack • iOS glass specialist<br><span class="text-green-600 text-xs font-semibold"><i class="fas fa-chart-simple mr-1"></i> Direct KSh rates — Zero hidden fees</span></p></div></div>
+  </div>
 
-    <!-- ========= TWO INFO CARDS WITH LIQUID STYLE ========= -->
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-7">
-      <div class="liquid-card edge-a p-6 flex items-start gap-5">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-100 to-white flex items-center justify-center border border-green-200"><i class="fas fa-certificate text-green-600 text-2xl"></i></div>
-        <div><h3 class="font-extrabold text-gray-900 text-lg flex items-center gap-2"><i class="fas fa-droplet text-green-600 text-sm"></i> Phoenix.Tech Liquid Guarantee</h3><p class="text-gray-600 text-sm leading-relaxed">✓ 45-day premium support • ✓ Liquid glass UI included • ✓ Edge-crafted security • ✓ 55+ tools integration</p></div>
-      </div>
-      <div class="liquid-card edge-e p-6 flex items-start gap-5">
-        <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-green-200"><i class="fab fa-phoenix-framework text-green-600 text-2xl"></i></div>
-        <div><h3 class="font-extrabold text-gray-900 flex items-center gap-2"><i class="fas fa-user-astronaut text-green-600"></i> Pius Maina · Principal Architect</h3><p class="text-gray-600 text-sm">Phoenix.Tech Inc • 12+ years full-stack • Liquid glass specialist<br><span class="text-green-600 text-xs font-semibold"><i class="fas fa-chart-simple mr-1"></i> Direct KSh rates — Zero hidden fees</span></p></div>
-      </div>
-    </div>
+  <!-- FEATURE PILLARS -->
+  <div class="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="card-ios edge-g p-5 flex items-center gap-4"><i class="fas fa-bezier-curve text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Asymmetric Architecture</p><p class="text-xs text-gray-500">Bespoke edge design language</p></div></div>
+    <div class="card-ios edge-c p-5 flex items-center gap-4"><i class="fas fa-chart-line text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">55+ Tool Ecosystem</p><p class="text-xs text-gray-500">Full-stack, AI, mobile, commerce</p></div></div>
+    <div class="card-ios edge-f p-5 flex items-center gap-4"><i class="fas fa-layer-group text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">iOS Glass Aesthetic</p><p class="text-xs text-gray-500">Morphing blur & edge dynamics</p></div></div>
+  </div>
 
-    <!-- ========= FEATURE PILLARS ENHANCED ========= -->
-    <div class="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="liquid-card edge-g p-5 flex items-center gap-4"><i class="fas fa-droplet text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Liquid Glass Aesthetic</p><p class="text-xs text-gray-500">Morphing gradients & dynamic blur</p></div></div>
-      <div class="liquid-card edge-c p-5 flex items-center gap-4"><i class="fas fa-chart-line text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">55+ Tool Ecosystem</p><p class="text-xs text-gray-500">Full-stack, AI, mobile, commerce</p></div></div>
-      <div class="liquid-card edge-f p-5 flex items-center gap-4"><i class="fas fa-layer-group text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Asymmetric Architecture</p><p class="text-xs text-gray-500">Bespoke edge design language</p></div></div>
-    </div>
-    
-    <!-- footer with liquid glass signature -->
-    <div class="mt-12 text-center text-gray-500 text-[11px] md:text-xs border-t border-green-200/50 pt-7 flex flex-wrap justify-center gap-x-6 gap-y-3">
-      <span><i class="fas fa-droplet text-green-500 mr-1.5"></i> Liquid glass finishing · signature edge geometry</span>
-      <span><i class="fas fa-leaf text-green-500 mr-1.5"></i> Green & White · Business modern</span>
-      <span><i class="fas fa-mobile-alt mr-1.5 text-green-500"></i> Fully fluid from mobile to 4K</span>
-      <span><i class="fab fa-phoenix-framework mr-1.5 text-green-600"></i> Pius Maina · Phoenix.Tech Inc</span>
-      <span><i class="fas fa-cubes mr-1.5 text-green-500"></i> 55+ integrated technologies</span>
-    </div>
-  </main>
+  <!-- footer -->
+  <div class="mt-12 text-center text-gray-500 text-[11px] md:text-xs border-t border-green-200/40 pt-7 flex flex-wrap justify-center gap-x-6 gap-y-3">
+    <span><i class="fas fa-bezier-curve text-green-500 mr-1.5"></i> Asymmetric finishing · Edge geometry</span>
+    <span><i class="fas fa-leaf text-green-500 mr-1.5"></i> Green & White · Business modern</span>
+    <span><i class="fas fa-mobile-alt mr-1.5 text-green-500"></i> 8K HD fluid from mobile to 4K</span>
+    <span><i class="fab fa-phoenix-framework mr-1.5 text-green-600"></i> Pius Maina · Phoenix28.Tech Inc</span>
+    <span><i class="fas fa-cubes mr-1.5 text-green-500"></i> 55+ integrated technologies</span>
+  </div>
+</main>
 </body>
 </html>
