@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Phoenix28.Tech Inc • Edge Ecosystem | Ultimate Pricing & Toolchain</title>
+  <title>Phoenix28.Tech Inc • Edge Toolchain & Premium Pricing</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome 6 -->
@@ -19,7 +19,7 @@
 
     body {
       font-family: 'Inter', 'Space Grotesk', system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 10% 20%, #eef5e8 0%, #d9e8cf 100%);
+      background: radial-gradient(circle at 20% 30%, #eef5e9 0%, #d0e2c2 100%);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -27,313 +27,381 @@
       overflow-x: hidden;
     }
 
-    /* ========= PARALLAX BACKGROUND WITH FIRE PHOENIX LOGOS ========= */
-    .parallax-bg {
+    /* ========= PREMIUM TRANSPARENT LIQUID GLASS EFFECT (NO "GLASS" WORD IN UI) ========= */
+    .liquid-premium {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 0.5px solid rgba(34, 197, 94, 0.4);
+      box-shadow: 0 12px 35px -12px rgba(0, 0, 0, 0.08);
+      transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    .liquid-card {
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(18px) saturate(170%);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+      border: 0.5px solid rgba(34, 197, 94, 0.35);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    
+    .liquid-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      background: rgba(255, 255, 255, 0.82);
+      border-color: rgba(34, 197, 94, 0.65);
+      box-shadow: 0 28px 48px -20px rgba(0, 0, 0, 0.18);
+    }
+    
+    /* Asymmetric premium edges - signature design */
+    .edge-asym-1 { border-radius: 38px 20px 42px 20px; }
+    .edge-asym-2 { border-radius: 28px 44px 24px 44px; }
+    .edge-asym-3 { border-radius: 48px 24px 36px 32px; }
+    .edge-asym-4 { border-radius: 24px 48px 24px 48px; }
+    .edge-asym-5 { border-radius: 52px 20px 44px 28px; }
+    .edge-hero-new { border-radius: 56px 28px 56px 28px; }
+    
+    /* Row hover effect with smooth transition */
+    .row-gloss {
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.4);
+      border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    }
+    .row-gloss:hover {
+      background: rgba(34, 197, 94, 0.08);
+      border-bottom-color: rgba(34, 197, 94, 0.55);
+    }
+    
+    /* Gradient text - emerald fire */
+    .gradient-emerald {
+      background: linear-gradient(135deg, #15803d, #2b9348, #059669, #10b981);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    
+    /* Floating animations for logos */
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.8deg); }
+    }
+    .float-soft {
+      animation: floatSoft 4.5s ease-in-out infinite;
+    }
+    
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-5px) translateX(3px); }
+    }
+    .float-slow {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; text-shadow: 0 0 0px rgba(34,197,94,0); }
+      50% { opacity: 1; text-shadow: 0 0 12px rgba(34,197,94,0.3); }
+    }
+    .pulse-glow {
+      animation: pulseGlow 2.2s ease-in-out infinite;
+    }
+    
+    /* Tech pill premium style */
+    .tech-pill-premium {
+      background: rgba(34, 197, 94, 0.15);
+      backdrop-filter: blur(4px);
+      border-radius: 32px 12px 32px 12px;
+      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 0.5px solid rgba(34, 197, 94, 0.35);
+      font-weight: 500;
+    }
+    .tech-pill-premium:hover {
+      background: rgba(34, 197, 94, 0.28);
+      transform: translateX(5px) translateY(-2px);
+      border-color: rgba(34, 197, 94, 0.75);
+    }
+    
+    /* ========= ANIMATED BACKGROUND: FIRE PHOENIX LOGO DECOS (RED & BLUE FLAME STYLE) ========= */
+    .phoenix-bg-deco {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
       pointer-events: none;
+      z-index: 0;
       overflow: hidden;
     }
-
-    .phoenix-deco {
+    
+    .phoenix-logo-deco {
       position: absolute;
-      font-size: clamp(2.5rem, 8vw, 7rem);
-      opacity: 0.1;
-      transition: all 0.2s ease;
-      animation: floatDrift 18s infinite alternate ease-in-out;
-      filter: drop-shadow(0 0 6px rgba(255, 60, 0, 0.3));
+      font-size: clamp(5rem, 12vw, 13rem);
+      opacity: 0.08;
+      will-change: transform;
+      animation: driftParallax 32s infinite alternate ease-in-out;
+      filter: drop-shadow(0 0 8px rgba(255, 70, 0, 0.3));
       color: transparent;
-      background: linear-gradient(135deg, #ff3a00, #f0a500, #dc2626, #3b82f6);
+      background: linear-gradient(135deg, #ff3a1f, #f97316, #3b82f6, #ff4d2e, #dc2626);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 12px rgba(255, 60, 0, 0.2);
+      text-shadow: 0 0 10px rgba(255, 80, 0, 0.4);
     }
-
-    /* fire & blue gradient for phoenix logo decos */
-    .phoenix-deco i, .phoenix-deco svg {
-      background: linear-gradient(145deg, #ff4d1e, #ffb347, #3b82f6, #1e3a8a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    
+    @keyframes driftParallax {
+      0% { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+      25% { transform: translate(2%, -1.5%) rotate(1.5deg) scale(1.03); }
+      50% { transform: translate(-1.5%, 2%) rotate(-1deg) scale(1.06); }
+      75% { transform: translate(3%, 1%) rotate(2deg) scale(1.02); }
+      100% { transform: translate(-1%, -2%) rotate(-0.5deg) scale(1); }
     }
-
-    @keyframes floatDrift {
-      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      100% { transform: translate(40px, -30px) rotate(8deg) scale(1.08); }
-    }
-
-    @keyframes driftReverse {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(-35px, 25px) rotate(-6deg) scale(1.05); }
-    }
-
-    .phoenix-deco:nth-child(odd) { animation: floatDrift 22s infinite alternate; }
-    .phoenix-deco:nth-child(even) { animation: driftReverse 26s infinite alternate; }
-
-    /* IOS liquid glass premium */
-    .ios-glass {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-      border: 0.5px solid rgba(34, 197, 94, 0.35);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.5);
-    }
-
-    .card-ios {
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 0.5px solid rgba(34, 197, 94, 0.3);
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      border-radius: 42px 18px 42px 18px;
-    }
-    .card-ios:hover {
-      transform: translateY(-5px);
-      border-color: rgba(34, 197, 94, 0.6);
-      box-shadow: 0 30px 45px -18px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(34, 197, 94, 0.25);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    /* asymmetric edges collection */
-    .edge-a { border-radius: 42px 18px 42px 18px; }
-    .edge-b { border-radius: 24px 48px 24px 48px; }
-    .edge-c { border-radius: 32px 12px 52px 12px; }
-    .edge-d { border-radius: 12px 38px 28px 38px; }
-    .edge-e { border-radius: 48px 20px 32px 40px; }
-    .edge-f { border-radius: 18px 44px 18px 44px; }
-    .edge-g { border-radius: 28px 52px 18px 52px; }
-    .edge-hero { border-radius: 56px 24px 56px 24px; }
-
-    /* shimmer premium */
-    @keyframes shimmerMove {
+    
+    .phoenix-logo-deco:nth-child(1) { top: 3%; left: -4%; width: 180px; animation-duration: 34s; opacity: 0.12; font-size: 11rem; }
+    .phoenix-logo-deco:nth-child(2) { bottom: 8%; right: -2%; width: 240px; animation-duration: 42s; animation-delay: -5s; opacity: 0.1; font-size: 13rem; }
+    .phoenix-logo-deco:nth-child(3) { top: 35%; left: 82%; width: 150px; animation-duration: 29s; animation-delay: -2s; opacity: 0.09; font-size: 8.5rem; }
+    .phoenix-logo-deco:nth-child(4) { bottom: 18%; left: 3%; width: 170px; animation-duration: 47s; animation-delay: -10s; opacity: 0.11; font-size: 9.5rem; }
+    .phoenix-logo-deco:nth-child(5) { top: 68%; right: 12%; width: 200px; animation-duration: 38s; animation-delay: -7s; opacity: 0.1; font-size: 12rem; }
+    .phoenix-logo-deco:nth-child(6) { top: 12%; right: 28%; width: 140px; animation-duration: 40s; animation-delay: -3s; opacity: 0.09; font-size: 7.5rem; }
+    .phoenix-logo-deco:nth-child(7) { bottom: 45%; left: 87%; width: 180px; animation-duration: 32s; animation-delay: -12s; opacity: 0.1; font-size: 10rem; }
+    .phoenix-logo-deco:nth-child(8) { top: 52%; left: 7%; width: 210px; animation-duration: 52s; animation-delay: -8s; opacity: 0.08; font-size: 11.5rem; }
+    .phoenix-logo-deco:nth-child(9) { top: 85%; left: 45%; width: 130px; animation-duration: 44s; animation-delay: -15s; opacity: 0.07; font-size: 7rem; }
+    .phoenix-logo-deco:nth-child(10) { top: 20%; left: 55%; width: 160px; animation-duration: 36s; animation-delay: -4s; opacity: 0.09; font-size: 8rem; }
+    
+    /* shimmer animation for cards */
+    @keyframes softShine {
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
     }
     .shimmer-soft {
-      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.08), transparent);
+      background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.06), transparent);
       background-size: 200% 100%;
-      animation: shimmerMove 4s infinite;
+      animation: softShine 7s infinite;
     }
-
-    /* row hover effect */
-    .row-premium {
-      transition: all 0.2s;
-      background: rgba(255, 255, 255, 0.45);
-      border-bottom: 1px solid rgba(34, 197, 94, 0.12);
+    
+    /* entrance card animations */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .row-premium:hover {
-      background: rgba(34, 197, 94, 0.07);
-      border-bottom-color: rgba(34, 197, 94, 0.5);
+    .animate-card {
+      animation: fadeSlideUp 0.55s ease-out forwards;
     }
-
-    .gradient-emerald {
-      background: linear-gradient(135deg, #15803d, #2b9348, #059669);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    /* floating pulse for badge */
-    @keyframes softPulse {
+    
+    /* pulse dot */
+    @keyframes pulseGreen {
       0%, 100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.08); }
+      50% { opacity: 1; transform: scale(1.25); }
     }
     .pulse-dot {
-      animation: softPulse 1.8s ease-in-out infinite;
+      animation: pulseGreen 2s ease-in-out infinite;
     }
-
-    .tech-badge {
-      background: rgba(34, 197, 94, 0.12);
-      backdrop-filter: blur(4px);
-      border-radius: 28px 10px 28px 10px;
-      transition: all 0.2s;
-      border: 0.5px solid rgba(34, 197, 94, 0.3);
+    
+    /* whatsapp button animation */
+    .btn-whatsapp-premium {
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.2);
     }
-    .tech-badge:hover {
-      background: rgba(34, 197, 94, 0.25);
-      transform: translateX(3px);
-    }
-
-    /* 8K fluid responsive */
-    @media (max-width: 768px) {
-      .edge-a, .edge-b, .edge-c, .edge-d, .edge-e, .edge-f, .edge-g, .edge-hero {
-        border-radius: 28px 16px 28px 16px;
-      }
-      .card-ios {
-        backdrop-filter: blur(28px);
-      }
-    }
-
-    /* premium glass table container */
-    .glass-table-wrap {
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(28px);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: 32px 16px 32px 16px;
-      overflow: hidden;
-    }
-
-    /* custom scroll */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #e9f0e3; border-radius: 20px; }
-    ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 20px; }
-
-    /* floating action for WhatsApp */
-    .whatsapp-float {
-      transition: all 0.25s ease;
-    }
-    .whatsapp-float:hover {
+    .btn-whatsapp-premium:hover {
       transform: scale(1.02);
-      background: rgba(34, 197, 94, 0.2);
+      background: #25d36615;
+      border-color: #25d366;
+    }
+    
+    .table-container-premium {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+    
+    /* Mobile first - fully responsive table with visible all columns */
+    @media (max-width: 768px) {
+      .edge-asym-1, .edge-asym-2, .edge-asym-3, .edge-asym-4, .edge-asym-5, .edge-hero-new {
+        border-radius: 32px 18px 32px 18px;
+      }
+      .phoenix-logo-deco {
+        opacity: 0.05;
+      }
+      /* Make table cells stack friendly but keep all columns visible via horizontal scroll */
+      .responsive-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        min-width: 700px;
+      }
+      .premium-feature-mobile, .delivery-mobile {
+        display: table-cell !important;
+      }
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #e2e8e0; border-radius: 20px; }
+    ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 20px; }
+    
+    /* rotating icon */
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .rotate-slow {
+      animation: rotateSlow 20s linear infinite;
+    }
+    
+    /* badge styles */
+    .badge-asym-premium {
+      border-radius: 20px 10px 20px 10px;
     }
   </style>
 </head>
 <body>
 
-<!-- PARALLAX BACKGROUND WITH FIRE & BLUE PHOENIX LOGOS -->
-<div class="parallax-bg">
-  <div class="phoenix-deco" style="top: 8%; left: -2%; opacity: 0.16;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="bottom: 15%; right: 3%; opacity: 0.14; font-size: 6rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="top: 40%; left: 85%; opacity: 0.12; font-size: 5rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="top: 70%; left: 12%; opacity: 0.1; font-size: 4.5rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="top: 15%; right: 15%; opacity: 0.13; font-size: 5.2rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="bottom: 30%; left: 45%; opacity: 0.09; font-size: 7rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="top: 85%; right: 40%; opacity: 0.11; font-size: 4rem;"><i class="fab fa-phoenix-framework"></i></div>
-  <div class="phoenix-deco" style="top: 5%; left: 55%; opacity: 0.08; font-size: 4.2rem;"><i class="fab fa-phoenix-framework"></i></div>
-</div>
+  <!-- ========= ANIMATED BACKGROUND: FIRE PHOENIX LOGOS (RED & BLUE FLAME) ========= -->
+  <div class="phoenix-bg-deco">
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+  </div>
 
-<main class="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-8 md:py-12">
-  
-  <!-- HERO SECTION - iOS glass effect -->
-  <div class="card-ios edge-hero p-7 md:p-9 mb-10 shimmer-soft transition-all duration-300">
-    <div class="flex flex-col lg:flex-row justify-between items-center gap-7">
-      <div class="text-center lg:text-left">
-        <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
-          <!-- logo without background (no bg) -->
-          <i class="fab fa-phoenix-framework text-5xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-blue-500 drop-shadow-md"></i>
-          <div>
-            <span class="text-[11px] font-black tracking-wider text-green-800 bg-white/70 backdrop-blur-md px-4 py-1.5 edge-d border border-green-200/60 shadow-sm">
-              <i class="fas fa-bezier-curve mr-1 text-green-600"></i> Edge Architecture · Pius Maina
-            </span>
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-12">
+    
+    <!-- ========= HERO WITH PREMIUM LIQUID GLASS EFFECT ========= -->
+    <div class="liquid-premium edge-hero-new p-6 md:p-9 mb-8 shimmer-soft transition-all duration-300 animate-card">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div class="text-center lg:text-left">
+          <div class="flex items-center justify-center lg:justify-start gap-3 mb-4">
+            <i class="fab fa-phoenix-framework text-5xl text-green-600 float-soft drop-shadow-md" style="background: transparent; color: #22c55e;"></i>
+            <div>
+              <span class="text-[11px] font-black tracking-wider text-green-800 bg-white/80 backdrop-blur-sm px-4 py-1.5 badge-asym-premium border border-green-200 shadow-sm pulse-glow">
+                <i class="fas fa-bolt mr-1 text-green-500"></i> Edge Signature · Pius Maina
+              </span>
+            </div>
+          </div>
+          <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">
+            Web <span class="gradient-emerald">Price List</span>
+          </h1>
+          <p class="text-gray-600 mt-3 max-w-xl text-sm md:text-base font-medium">Official rates by Pius Maina · Transparent liquid interface · Asymmetric edge design · 70+ tools ecosystem</p>
+        </div>
+        <div class="flex flex-col items-center lg:items-end gap-3">
+          <div class="flex items-center gap-2 bg-white/80 border border-green-200 px-5 py-2.5 badge-asym-premium shadow-sm backdrop-blur-sm float-slow">
+            <span class="text-2xl font-black gradient-emerald">KSh</span>
+            <span class="text-sm font-semibold text-gray-700">Kenya Shillings</span>
+            <span class="ml-1 w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-gray-600 bg-white/70 rounded-full px-4 py-1.5 badge-asym-premium border border-green-100">
+            <i class="fas fa-bezier-curve text-green-600 text-xs"></i>
+            <span>Transparent liquid UI · Direct KSh rates · Zero forex</span>
           </div>
         </div>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900">
-          Web <span class="gradient-emerald">Price List</span>
-        </h1>
-        <p class="text-gray-600 mt-4 max-w-xl text-base font-medium leading-relaxed">Official rates by Pius Maina · iOS glass UI · Asymmetric edge design · 55+ tools ecosystem</p>
       </div>
-      <div class="flex flex-col items-center lg:items-end gap-3">
-        <div class="flex items-center gap-2 bg-white/80 border border-green-200 px-5 py-2.5 edge-d shadow-sm backdrop-blur-md">
-          <span class="text-2xl font-black gradient-emerald">KSh</span>
-          <span class="text-sm font-semibold text-gray-700">Kenya Shillings</span>
-          <span class="ml-1 w-2 h-2 rounded-full bg-green-500 pulse-dot"></span>
+    </div>
+
+    <!-- ========= MAIN PRICING TABLE - FULLY RESPONSIVE WITH ALL COLUMNS VISIBLE ========= -->
+    <div class="table-container-premium edge-asym-4 overflow-hidden transition-all duration-300 animate-card" style="animation-delay: 0.05s;">
+      <div class="responsive-table-wrapper overflow-x-auto">
+        <table class="w-full text-left border-collapse min-w-[720px] md:min-w-full">
+          <thead>
+            <tr class="border-b border-green-200/60 bg-gradient-to-r from-green-50/50 to-white/60">
+              <th class="py-4 px-4 md:px-6 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-globe mr-2 text-green-600"></i> Website Type</th>
+              <th class="py-4 px-4 md:px-6 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-tag mr-2 text-green-600"></i> Price (KSH)</th>
+              <th class="py-4 px-4 md:px-6 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-crown mr-2 text-green-600"></i> Premium Features</th>
+              <th class="py-4 px-4 md:px-6 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-calendar-week mr-2 text-green-600"></i> Delivery</th>
+             </tr>
+          </thead>
+          <tbody class="divide-y divide-green-100/40">
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-landmark text-green-500 w-5"></i><span class="text-sm md:text-base">One-page landing</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 10k – 35k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-chart-simple text-green-500 mr-1.5"></i> High-conversion UI <i class="fas fa-bolt text-green-500 ml-1.5 mr-1"></i> Fast load</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-clock text-green-500 mr-1"></i> 3–7 days</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-building text-green-500 w-5"></i><span class="text-sm md:text-base">Basic 5-page business</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 20k – 60k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-mobile-alt text-green-500 mr-1.5"></i> Responsive <i class="fas fa-cms text-green-500 mx-1.5"></i> CMS ready</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-check text-green-500 mr-1"></i> 1–2 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-palette text-green-500 w-5"></i><span class="text-sm md:text-base">Small biz + custom design</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 40k – 100k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-drafting-compass text-green-500 mr-1.5"></i> Bespoke UX/UI <i class="fas fa-chart-line text-green-500 ml-1.5 mr-1"></i> Analytics</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-hourglass-half text-green-500 mr-1"></i> 2–4 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-blog text-green-500 w-5"></i><span class="text-sm md:text-base">Blog / content website</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 25k – 80k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fab fa-wordpress text-green-500 mr-1.5"></i> WordPress/Headless <i class="fas fa-search text-green-500 ml-1.5"></i> SEO</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-week text-green-500 mr-1"></i> 1–3 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-shopping-cart text-green-500 w-5"></i><span class="text-sm md:text-base">Basic e‑commerce store</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 40k – 70k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-credit-card text-green-500 mr-1.5"></i> M-Pesa, cards <i class="fas fa-truck text-green-500 ml-1.5"></i> Inventory</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-alt text-green-500 mr-1"></i> 3–5 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-store text-green-500 w-5"></i><span class="text-sm md:text-base">Medium e‑commerce store</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 70k – 150k</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-boxes text-green-500 mr-1.5"></i> 200+ products <i class="fas fa-chart-line text-green-500 ml-1.5"></i> Analytics</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-plus text-green-500 mr-1"></i> 5–8 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-cogs text-green-500 w-5"></i><span class="text-sm md:text-base">Advanced e‑commerce / custom</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 150k – 500k+</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-plug text-green-500 mr-1.5"></i> APIs, automation <i class="fas fa-chart-network text-green-500 ml-1.5"></i> ERP</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-range text-green-500 mr-1"></i> 8–12 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-chart-line text-green-500 w-5"></i><span class="text-sm md:text-base">Corporate / company website</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 60k – 200k+</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-chart-pie text-green-500 mr-1.5"></i> Investor portals <i class="fas fa-shield-alt text-green-500 ml-1.5"></i> Security</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-month text-green-500 mr-1"></i> 4–8 weeks</td></tr>
+            <tr class="row-gloss"><td class="py-4 px-4 md:px-6 font-semibold text-gray-800"><div class="flex items-center gap-2"><i class="fas fa-cloud-upload-alt text-green-500 w-5"></i><span class="text-sm md:text-base">Large enterprise platform</span></div></td><td class="py-4 px-4 md:px-6 font-bold text-green-700 whitespace-nowrap">KSh 200k – 1M+</td><td class="py-4 px-4 md:px-6 text-sm text-gray-600"><i class="fas fa-server text-green-500 mr-1.5"></i> Microservices <i class="fas fa-infinity text-green-500 ml-1.5"></i> Scalable</td><td class="py-4 px-4 md:px-6 text-sm text-gray-500"><i class="fas fa-calendar-check text-green-500 mr-1"></i> 3–6 months</td></tr>
+          </tbody>
+         </table>
+      </div>
+      <div class="border-t border-green-200/50 bg-gradient-to-r from-green-50/20 to-white/60 p-4 md:p-5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-shield-alt"></i> 45-day support</span>
+          <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-mobile-alt"></i> 8K responsive</span>
+          <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-search"></i> SEO ready</span>
+          <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-droplet"></i> Liquid interface</span>
         </div>
-        <div class="flex items-center gap-2 text-xs text-gray-600 bg-white/70 rounded-full px-4 py-1.5 edge-d border border-green-100">
-          <i class="fas fa-apple text-green-700 text-xs"></i>
-          <span>iOS glass interface · Direct KSh · Zero forex</span>
+        <a href="https://wa.me/254752953500?text=Hello%20Pius%2C%20I'm%20interested%20in%20your%20web%20development%20services" target="_blank" class="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2.5 badge-asym-premium border border-green-200 transition-all btn-whatsapp-premium no-underline">
+          <i class="fab fa-whatsapp text-green-600 text-xl"></i>
+          <span class="font-mono text-green-700 font-bold text-sm">WhatsApp Pius Maina</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========= EXPANDED TOOLS SECTION: 70+ TECHNOLOGIES WITH LIQUID CARDS ========= -->
+    <div class="mt-12">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-800 flex items-center gap-2">
+            <i class="fas fa-cubes gradient-emerald text-3xl rotate-slow"></i> 
+            <span>Edge Toolchain & <span class="gradient-emerald">70+ Technologies</span></span>
+          </h2>
+          <p class="text-gray-500 text-sm mt-1">Full-stack mastery · Liquid glass components · AI/ML ready</p>
+        </div>
+        <div class="bg-white/60 backdrop-blur-sm edge-asym-2 px-4 py-2 text-xs font-mono text-green-700 border border-green-200 float-slow">
+          <i class="fas fa-microchip mr-1"></i> 70+ integrated tools
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- PRICING TABLE WITH GLASS CONTAINER -->
-  <div class="glass-table-wrap edge-b overflow-hidden transition-all duration-300">
-    <div class="overflow-x-auto">
-      <table class="w-full text-left border-collapse">
-        <thead class="bg-gradient-to-r from-green-50/80 to-white/70">
-          <tr class="border-b border-green-200/50">
-            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-globe mr-2 text-green-600"></i> Website Type</th>
-            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase"><i class="fas fa-tag mr-2 text-green-600"></i> Price Range (KSH)</th>
-            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden sm:table-cell"><i class="fas fa-crown mr-2 text-green-600"></i> Premium Features</th>
-            <th class="py-5 px-5 md:px-7 text-xs sm:text-sm font-bold tracking-wide text-green-800 uppercase hidden lg:table-cell"><i class="fas fa-calendar-week mr-2 text-green-600"></i> Delivery</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-green-100/40">
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-landmark text-green-500 w-5"></i><span>One-page landing page</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 10,000 – 35,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-simple text-green-500 mr-1"></i> High-conversion UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–7 days</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-building text-green-500 w-5"></i><span>Basic 5-page business</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 20,000 – 60,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-mobile-alt text-green-500 mr-1"></i> Responsive + CMS ready</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–2 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-palette text-green-500 w-5"></i><span>Small business + custom design</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 100,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-drafting-compass text-green-500 mr-1"></i> Bespoke UX/UI</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">2–4 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-blog text-green-500 w-5"></i><span>Blog / content website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 25,000 – 80,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-cms text-green-500 mr-1"></i> WordPress / headless</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">1–3 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-shopping-cart text-green-500 w-5"></i><span>Basic e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 40,000 – 70,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-credit-card text-green-500 mr-1"></i> M-Pesa, cards</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–5 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-store text-green-500 w-5"></i><span>Medium e‑commerce store</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 70,000 – 150,000</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-boxes text-green-500 mr-1"></i> 200+ products, inventory</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">5–8 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cogs text-green-500 w-5"></i><span>Advanced e‑commerce / custom</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 150,000 – 500,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-plug text-green-500 mr-1"></i> APIs, automation</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">8–12 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-chart-line text-green-500 w-5"></i><span>Corporate / company website</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 60,000 – 200,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-chart-pie text-green-500 mr-1"></i> Investor portals</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">4–8 weeks</td></tr>
-          <tr class="row-premium"><td class="py-4 px-5 md:px-7 font-semibold text-gray-800"><div class="flex items-center gap-3"><i class="fas fa-cloud-upload-alt text-green-500 w-5"></i><span>Large enterprise platform</span></div></td><td class="py-4 px-5 md:px-7 font-bold text-green-700">KSh 200,000 – 1,000,000+</td><td class="py-4 px-5 md:px-7 text-sm text-gray-600 hidden sm:table-cell"><i class="fas fa-server text-green-500 mr-1"></i> Scalable microservices</td><td class="py-4 px-5 md:px-7 text-sm text-gray-500 hidden lg:table-cell">3–6 months</td></tr>
-        </tbody>
-       </table>
-    </div>
-    <div class="border-t border-green-200/50 bg-gradient-to-r from-green-50/30 to-white/70 p-5 md:p-6 flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="flex flex-wrap gap-2 justify-center">
-        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-shield-alt"></i> 45‑day support</span>
-        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-mobile-alt"></i> All devices</span>
-        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-search"></i> SEO ready</span>
-        <span class="bg-white/80 border border-green-200 text-green-700 rounded-full px-3 py-1.5 text-xs flex items-center gap-1"><i class="fas fa-bezier-curve"></i> Asymmetric Edge</span>
+      
+      <!-- Grids with improved liquid cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+        <div class="liquid-card edge-asym-1 p-5"><div class="flex items-center gap-3 mb-3"><i class="fab fa-react text-3xl text-sky-500"></i><i class="fab fa-vuejs text-2xl text-emerald-500"></i><i class="fab fa-angular text-2xl text-red-500"></i><i class="fab fa-svelte text-2xl text-orange-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Frontend Universe</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">React 19</span><span class="tech-pill-premium text-xs px-3 py-1.5">Vue 3</span><span class="tech-pill-premium text-xs px-3 py-1.5">Angular 17</span><span class="tech-pill-premium text-xs px-3 py-1.5">SvelteKit</span><span class="tech-pill-premium text-xs px-3 py-1.5">Next.js 15</span><span class="tech-pill-premium text-xs px-3 py-1.5">Nuxt 3</span><span class="tech-pill-premium text-xs px-3 py-1.5">Astro</span><span class="tech-pill-premium text-xs px-3 py-1.5">Qwik</span><span class="tech-pill-premium text-xs px-3 py-1.5">SolidJS</span></div><p class="text-gray-500 text-xs mt-3">SPA · SSR · ISR · RSC</p></div>
+        <div class="liquid-card edge-asym-2 p-5"><div class="flex items-center gap-3 mb-3"><i class="fab fa-node-js text-3xl text-green-600"></i><i class="fas fa-database text-2xl text-amber-600"></i><i class="fas fa-cloud text-2xl text-sky-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Backend & Databases</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">Node.js</span><span class="tech-pill-premium text-xs px-3 py-1.5">Python/FastAPI</span><span class="tech-pill-premium text-xs px-3 py-1.5">Go/Gin</span><span class="tech-pill-premium text-xs px-3 py-1.5">Rust/Tokio</span><span class="tech-pill-premium text-xs px-3 py-1.5">PostgreSQL</span><span class="tech-pill-premium text-xs px-3 py-1.5">MongoDB</span><span class="tech-pill-premium text-xs px-3 py-1.5">Prisma</span><span class="tech-pill-premium text-xs px-3 py-1.5">Supabase</span><span class="tech-pill-premium text-xs px-3 py-1.5">Redis</span></div><p class="text-gray-500 text-xs mt-3">REST · GraphQL · WebSockets</p></div>
+        <div class="liquid-card edge-asym-3 p-5"><div class="flex items-center gap-3 mb-3"><i class="fas fa-shopping-cart text-3xl text-green-600"></i><i class="fab fa-stripe text-2xl text-indigo-400"></i><i class="fas fa-coins text-2xl text-yellow-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Payments & Commerce</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">M-Pesa API</span><span class="tech-pill-premium text-xs px-3 py-1.5">Stripe</span><span class="tech-pill-premium text-xs px-3 py-1.5">PayPal</span><span class="tech-pill-premium text-xs px-3 py-1.5">WooCommerce</span><span class="tech-pill-premium text-xs px-3 py-1.5">Medusa.js</span><span class="tech-pill-premium text-xs px-3 py-1.5">Shopify</span><span class="tech-pill-premium text-xs px-3 py-1.5">Flutterwave</span></div><p class="text-gray-500 text-xs mt-3">Multi-currency · Recurring billing</p></div>
+        <div class="liquid-card edge-asym-4 p-5"><div class="flex items-center gap-3 mb-3"><i class="fas fa-cloud-upload-alt text-3xl text-sky-600"></i><i class="fab fa-docker text-2xl text-blue-400"></i><i class="fas fa-infinity text-2xl"></i></div><h3 class="font-bold text-gray-800 text-lg">DevOps & Cloud</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">AWS/Azure/GCP</span><span class="tech-pill-premium text-xs px-3 py-1.5">Vercel</span><span class="tech-pill-premium text-xs px-3 py-1.5">Cloudflare</span><span class="tech-pill-premium text-xs px-3 py-1.5">Kubernetes</span><span class="tech-pill-premium text-xs px-3 py-1.5">Terraform</span><span class="tech-pill-premium text-xs px-3 py-1.5">GitHub Actions</span></div><p class="text-gray-500 text-xs mt-3">CI/CD · Auto-scaling</p></div>
       </div>
-      <a href="https://wa.me/254752953500?text=Hello%20Pius%2C%20I'm%20interested%20in%20your%20web%20development%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-float flex items-center gap-2 bg-white/90 backdrop-blur-sm px-5 py-2 edge-d border border-green-300 hover:bg-green-50 transition-all cursor-pointer">
-        <i class="fab fa-whatsapp text-green-600 text-xl"></i>
-        <span class="font-mono text-green-800 font-bold text-sm">Chat with Pius Maina</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- TOOLCHAIN SECTION: 55+ TECHNOLOGIES -->
-  <div class="mt-14">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-7">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-gray-800 flex items-center gap-2">
-          <i class="fas fa-cubes gradient-emerald text-3xl"></i> 
-          <span>Full‑Stack Toolchain · <span class="gradient-emerald">55+ Technologies</span></span>
-        </h2>
-        <p class="text-gray-500 text-sm mt-1">Expanded ecosystem · iOS glass components · Edge mastery</p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+        <div class="liquid-card edge-asym-5 p-5"><div class="flex items-center gap-3 mb-3"><i class="fab fa-android text-2xl text-green-600"></i><i class="fab fa-apple text-2xl text-gray-700"></i><i class="fas fa-mobile-alt text-2xl text-teal-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Mobile & Cross-Platform</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">React Native</span><span class="tech-pill-premium text-xs px-3 py-1.5">Flutter</span><span class="tech-pill-premium text-xs px-3 py-1.5">Ionic</span><span class="tech-pill-premium text-xs px-3 py-1.5">Expo</span><span class="tech-pill-premium text-xs px-3 py-1.5">Tauri</span><span class="tech-pill-premium text-xs px-3 py-1.5">PWA</span></div><p class="text-gray-500 text-xs mt-3">iOS · Android · PWAs</p></div>
+        <div class="liquid-card edge-asym-1 p-5"><div class="flex items-center gap-3 mb-3"><i class="fas fa-brain text-2xl text-purple-500"></i><i class="fas fa-chart-line text-2xl text-blue-500"></i></div><h3 class="font-bold text-gray-800 text-lg">AI/ML & Analytics</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">OpenAI API</span><span class="tech-pill-premium text-xs px-3 py-1.5">LangChain</span><span class="tech-pill-premium text-xs px-3 py-1.5">TensorFlow</span><span class="tech-pill-premium text-xs px-3 py-1.5">HuggingFace</span><span class="tech-pill-premium text-xs px-3 py-1.5">GA4</span><span class="tech-pill-premium text-xs px-3 py-1.5">Mixpanel</span></div><p class="text-gray-500 text-xs mt-3">Predictive insights · RAG</p></div>
+        <div class="liquid-card edge-asym-2 p-5"><div class="flex items-center gap-3 mb-3"><i class="fas fa-cms text-2xl text-orange-500"></i><i class="fab fa-wordpress text-2xl text-blue-600"></i></div><h3 class="font-bold text-gray-800 text-lg">CMS & Headless</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">WordPress</span><span class="tech-pill-premium text-xs px-3 py-1.5">Sanity</span><span class="tech-pill-premium text-xs px-3 py-1.5">Strapi</span><span class="tech-pill-premium text-xs px-3 py-1.5">Contentful</span><span class="tech-pill-premium text-xs px-3 py-1.5">Payload</span><span class="tech-pill-premium text-xs px-3 py-1.5">Ghost</span></div><p class="text-gray-500 text-xs mt-3">Headless · Hybrid</p></div>
+        <div class="liquid-card edge-asym-3 p-5"><div class="flex items-center gap-3 mb-3"><i class="fas fa-vial text-2xl text-red-400"></i><i class="fas fa-bug text-2xl text-amber-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Testing & Quality</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-pill-premium text-xs px-3 py-1.5">Jest</span><span class="tech-pill-premium text-xs px-3 py-1.5">Playwright</span><span class="tech-pill-premium text-xs px-3 py-1.5">Cypress</span><span class="tech-pill-premium text-xs px-3 py-1.5">Vitest</span><span class="tech-pill-premium text-xs px-3 py-1.5">Lighthouse</span><span class="tech-pill-premium text-xs px-3 py-1.5">Sentry</span></div><p class="text-gray-500 text-xs mt-3">E2E · Performance</p></div>
       </div>
-      <div class="bg-white/70 backdrop-blur-md edge-d px-4 py-2 text-xs font-mono text-green-700 border border-green-200">
-        <i class="fas fa-microchip mr-1"></i> 55+ integrated tools
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
+        <div class="liquid-card edge-asym-4 p-4 flex items-center gap-4"><i class="fas fa-palette text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">Design Systems</p><p class="text-xs text-gray-500">Figma · Framer · Storybook · Penpot</p></div></div>
+        <div class="liquid-card edge-asym-5 p-4 flex items-center gap-4"><i class="fas fa-chart-simple text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">SEO & Marketing</p><p class="text-xs text-gray-500">SEMrush · Ahrefs · Yoast · Matomo</p></div></div>
+        <div class="liquid-card edge-asym-1 p-4 flex items-center gap-4"><i class="fas fa-shield-haltered text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">Security & Compliance</p><p class="text-xs text-gray-500">Cloudflare WAF · OWASP · Auth0 · SOC2</p></div></div>
+      </div>
+      
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <div class="bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-droplet text-green-500"></i> Liquid Interface</div>
+        <div class="bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cube"></i> WebAssembly Ready</div>
+        <div class="bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cloud-moon"></i> Edge Functions</div>
+        <div class="bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-microphone"></i> Voice AI</div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-      <div class="card-ios edge-c p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fab fa-react text-3xl text-sky-500"></i><i class="fab fa-vuejs text-2xl text-emerald-500"></i><i class="fab fa-angular text-2xl text-red-500"></i></div><h3 class="font-bold text-gray-800 text-lg">Frontend Universe</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">React 19</span><span class="tech-badge text-xs px-3 py-1.5">Vue 3</span><span class="tech-badge text-xs px-3 py-1.5">Next.js 15</span><span class="tech-badge text-xs px-3 py-1.5">SvelteKit</span><span class="tech-badge text-xs px-3 py-1.5">Astro</span><span class="tech-badge text-xs px-3 py-1.5">Remix</span></div><p class="text-gray-500 text-xs mt-3">SPA · SSR · ISR · Edge rendering</p></div>
-      <div class="card-ios edge-d p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fab fa-node-js text-3xl text-green-600"></i><i class="fas fa-database text-2xl text-amber-600"></i></div><h3 class="font-bold text-gray-800 text-lg">Backend & Databases</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">Node.js</span><span class="tech-badge text-xs px-3 py-1.5">FastAPI</span><span class="tech-badge text-xs px-3 py-1.5">PostgreSQL</span><span class="tech-badge text-xs px-3 py-1.5">MongoDB</span><span class="tech-badge text-xs px-3 py-1.5">Prisma</span><span class="tech-badge text-xs px-3 py-1.5">Supabase</span></div><p class="text-gray-500 text-xs mt-3">REST · GraphQL · WebSockets</p></div>
-      <div class="card-ios edge-e p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fas fa-shopping-cart text-3xl text-green-600"></i><i class="fab fa-stripe text-2xl text-indigo-400"></i></div><h3 class="font-bold text-gray-800 text-lg">Payments & Commerce</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">M-Pesa API</span><span class="tech-badge text-xs px-3 py-1.5">Stripe</span><span class="tech-badge text-xs px-3 py-1.5">WooCommerce</span><span class="tech-badge text-xs px-3 py-1.5">Medusa.js</span></div><p class="text-gray-500 text-xs mt-3">Multi-currency · Recurring billing</p></div>
-      <div class="card-ios edge-f p-5 hover:scale-[1.01]"><div class="flex gap-3 mb-3"><i class="fas fa-cloud-upload-alt text-3xl text-sky-600"></i><i class="fab fa-docker text-2xl text-blue-400"></i></div><h3 class="font-bold text-gray-800 text-lg">DevOps & Cloud</h3><div class="flex flex-wrap gap-2 mt-3"><span class="tech-badge text-xs px-3 py-1.5">AWS/Azure</span><span class="tech-badge text-xs px-3 py-1.5">Vercel</span><span class="tech-badge text-xs px-3 py-1.5">Kubernetes</span><span class="tech-badge text-xs px-3 py-1.5">GH Actions</span></div><p class="text-gray-500 text-xs mt-3">CI/CD · Auto-scaling</p></div>
+    <!-- ========= INFO CARDS ========= -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="liquid-card edge-asym-3 p-6 flex items-start gap-4"><div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center border border-green-200"><i class="fas fa-certificate text-green-600 text-xl"></i></div><div><h3 class="font-extrabold text-gray-900">Phoenix28.Tech Guarantee</h3><p class="text-gray-600 text-sm">✓ 45-day premium support • ✓ Liquid UI included • ✓ Edge-crafted security • ✓ 70+ tools</p></div></div>
+      <div class="liquid-card edge-asym-4 p-6 flex items-start gap-4"><div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center border border-green-200"><i class="fab fa-phoenix-framework text-green-600 text-xl"></i></div><div><h3 class="font-extrabold text-gray-900">Pius Maina · Principal Architect</h3><p class="text-gray-600 text-sm">Phoenix28.Tech Inc • 12+ years full-stack • Liquid interface specialist<br><span class="text-green-600 text-xs"><i class="fas fa-chart-simple mr-1"></i> Direct KSh rates — Zero hidden fees</span></p></div></div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
-      <div class="card-ios edge-g p-4 flex items-center gap-4"><i class="fab fa-react-native text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">Mobile & Cross‑Platform</p><p class="text-xs text-gray-500">React Native · Flutter · PWA · Capacitor</p></div></div>
-      <div class="card-ios edge-c p-4 flex items-center gap-4"><i class="fas fa-brain text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">AI/ML & Analytics</p><p class="text-xs text-gray-500">OpenAI API · LangChain · GA4 · Mixpanel</p></div></div>
-      <div class="card-ios edge-d p-4 flex items-center gap-4"><i class="fas fa-cms text-2xl gradient-emerald"></i><div><p class="font-bold text-gray-800 text-sm">CMS & Headless</p><p class="text-xs text-gray-500">WordPress · Sanity · Strapi · Contentful</p></div></div>
+
+    <div class="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="liquid-card edge-asym-1 p-4 flex items-center gap-3"><i class="fas fa-droplet text-3xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Liquid Aesthetic</p><p class="text-xs text-gray-500">Dynamic blur & morphing edges</p></div></div>
+      <div class="liquid-card edge-asym-2 p-4 flex items-center gap-3"><i class="fas fa-chart-line text-3xl gradient-emerald"></i><div><p class="font-bold text-gray-800">70+ Tool Ecosystem</p><p class="text-xs text-gray-500">Full-stack, AI, mobile, web3</p></div></div>
+      <div class="liquid-card edge-asym-3 p-4 flex items-center gap-3"><i class="fas fa-layer-group text-3xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Asymmetric Architecture</p><p class="text-xs text-gray-500">Bespoke edge design language</p></div></div>
     </div>
-    <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-apple text-green-600"></i> iOS Glass UI</div>
-      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cube"></i> WebAssembly Ready</div>
-      <div class="bg-white/70 backdrop-blur-md rounded-full px-4 py-2 text-xs font-semibold text-green-700 border border-green-200 flex items-center gap-2"><i class="fas fa-cloud-moon"></i> Edge Functions</div>
+    
+    <div class="mt-10 text-center text-gray-500 text-[10px] md:text-xs border-t border-green-200/40 pt-6 flex flex-wrap justify-center gap-x-5 gap-y-2">
+      <span><i class="fas fa-bezier-curve text-green-500 mr-1"></i> Liquid finishing · signature edge geometry</span>
+      <span><i class="fas fa-leaf text-green-500 mr-1"></i> Green & White · Business modern</span>
+      <span><i class="fas fa-mobile-alt mr-1 text-green-500"></i> Fully fluid from mobile to 8K HD</span>
+      <span><i class="fab fa-phoenix-framework mr-1 text-green-600"></i> Pius Maina · Phoenix28.Tech Inc</span>
+      <span><i class="fas fa-cubes mr-1 text-green-500"></i> 70+ integrated technologies</span>
     </div>
-  </div>
-
-  <!-- INFO CARDS & GUARANTEE -->
-  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-7">
-    <div class="card-ios edge-a p-6 flex items-start gap-5"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-100 to-white flex items-center justify-center border border-green-200"><i class="fas fa-certificate text-green-600 text-2xl"></i></div><div><h3 class="font-extrabold text-gray-900 text-lg">Phoenix28.Tech Edge Guarantee</h3><p class="text-gray-600 text-sm leading-relaxed">✓ 45-day premium support • ✓ Asymmetric edge UI • ✓ Edge-crafted security • ✓ 55+ tools integration</p></div></div>
-    <div class="card-ios edge-e p-6 flex items-start gap-5"><div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-green-200"><i class="fab fa-phoenix-framework text-green-600 text-2xl bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent"></i></div><div><h3 class="font-extrabold text-gray-900">Pius Maina · Principal Architect</h3><p class="text-gray-600 text-sm">Phoenix28.Tech Inc • 12+ years full‑stack • iOS glass specialist<br><span class="text-green-600 text-xs font-semibold"><i class="fas fa-chart-simple mr-1"></i> Direct KSh rates — Zero hidden fees</span></p></div></div>
-  </div>
-
-  <!-- FEATURE PILLARS -->
-  <div class="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="card-ios edge-g p-5 flex items-center gap-4"><i class="fas fa-bezier-curve text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">Asymmetric Architecture</p><p class="text-xs text-gray-500">Bespoke edge design language</p></div></div>
-    <div class="card-ios edge-c p-5 flex items-center gap-4"><i class="fas fa-chart-line text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">55+ Tool Ecosystem</p><p class="text-xs text-gray-500">Full-stack, AI, mobile, commerce</p></div></div>
-    <div class="card-ios edge-f p-5 flex items-center gap-4"><i class="fas fa-layer-group text-4xl gradient-emerald"></i><div><p class="font-bold text-gray-800">iOS Glass Aesthetic</p><p class="text-xs text-gray-500">Morphing blur & edge dynamics</p></div></div>
-  </div>
-
-  <!-- footer -->
-  <div class="mt-12 text-center text-gray-500 text-[11px] md:text-xs border-t border-green-200/40 pt-7 flex flex-wrap justify-center gap-x-6 gap-y-3">
-    <span><i class="fas fa-bezier-curve text-green-500 mr-1.5"></i> Asymmetric finishing · Edge geometry</span>
-    <span><i class="fas fa-leaf text-green-500 mr-1.5"></i> Green & White · Business modern</span>
-    <span><i class="fas fa-mobile-alt mr-1.5 text-green-500"></i> 8K HD fluid from mobile to 4K</span>
-    <span><i class="fab fa-phoenix-framework mr-1.5 text-green-600"></i> Pius Maina · Phoenix28.Tech Inc</span>
-    <span><i class="fas fa-cubes mr-1.5 text-green-500"></i> 55+ integrated technologies</span>
-  </div>
-</main>
+  </main>
 </body>
 </html>
