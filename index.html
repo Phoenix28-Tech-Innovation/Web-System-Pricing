@@ -143,17 +143,13 @@
     
     .phoenix-logo-deco {
       position: absolute;
-      font-size: clamp(4rem, 12vw, 14rem);
-      opacity: 0.22;
+      width: clamp(6rem, 18vw, 26rem);
+      height: clamp(6rem, 18vw, 26rem);
+      opacity: 0.36;
       will-change: transform;
       animation: driftParallax 28s infinite alternate ease-in-out;
-      filter: drop-shadow(0 0 12px rgba(255, 60, 0, 0.4));
-      color: transparent;
-      background: linear-gradient(135deg, #ff2e00, #f97316, #3b82f6, #ff5722, #dc2626);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 18px rgba(255, 60, 0, 0.5);
+      filter: drop-shadow(0 0 24px rgba(0,0,0,0.12));
+      object-fit: contain;
     }
     
     @keyframes driftParallax {
@@ -164,21 +160,16 @@
       80% { transform: translate(-2%, -1%) rotate(-1deg) scale(1.04); }
       100% { transform: translate(1%, -2.5%) rotate(0.5deg) scale(1); }
     }
-    
-    /* Enhanced visibility - more logos, higher opacity, larger sizes */
-    .phoenix-logo-deco:nth-child(1) { top: 2%; left: -3%; animation-duration: 30s; opacity: 0.24; font-size: 12rem; }
-    .phoenix-logo-deco:nth-child(2) { bottom: 5%; right: -2%; animation-duration: 36s; animation-delay: -4s; opacity: 0.22; font-size: 14rem; }
-    .phoenix-logo-deco:nth-child(3) { top: 30%; left: 80%; animation-duration: 26s; animation-delay: -2s; opacity: 0.2; font-size: 9rem; }
-    .phoenix-logo-deco:nth-child(4) { bottom: 15%; left: 0%; animation-duration: 40s; animation-delay: -8s; opacity: 0.23; font-size: 10rem; }
-    .phoenix-logo-deco:nth-child(5) { top: 65%; right: 8%; animation-duration: 33s; animation-delay: -6s; opacity: 0.21; font-size: 11rem; }
-    .phoenix-logo-deco:nth-child(6) { top: 10%; right: 22%; animation-duration: 38s; animation-delay: -3s; opacity: 0.19; font-size: 8rem; }
-    .phoenix-logo-deco:nth-child(7) { bottom: 40%; left: 85%; animation-duration: 29s; animation-delay: -10s; opacity: 0.22; font-size: 9.5rem; }
-    .phoenix-logo-deco:nth-child(8) { top: 48%; left: 3%; animation-duration: 44s; animation-delay: -7s; opacity: 0.2; font-size: 10.5rem; }
-    .phoenix-logo-deco:nth-child(9) { top: 82%; left: 42%; animation-duration: 35s; animation-delay: -12s; opacity: 0.18; font-size: 8rem; }
-    .phoenix-logo-deco:nth-child(10) { top: 18%; left: 45%; animation-duration: 31s; animation-delay: -5s; opacity: 0.2; font-size: 9rem; }
-    .phoenix-logo-deco:nth-child(11) { bottom: 70%; right: 35%; animation-duration: 42s; animation-delay: -9s; opacity: 0.19; font-size: 7.5rem; }
-    .phoenix-logo-deco:nth-child(12) { top: 55%; right: 55%; animation-duration: 37s; animation-delay: -1s; opacity: 0.21; font-size: 8.5rem; }
-    
+
+    /* Strategic positioning for fewer, larger background decorations */
+    .phoenix-logo-deco:nth-child(1)  { top: 2%;   left: 1%;    animation-duration: 44s; animation-delay: -3s; transform: rotate(-8deg)  scale(1.5); }
+    .phoenix-logo-deco:nth-child(2)  { top: 4%;   right: 2%;   animation-duration: 48s; animation-delay: -5s; transform: rotate(12deg)  scale(1.7); }
+    .phoenix-logo-deco:nth-child(3)  { top: 28%;  left: -4%;   animation-duration: 42s; animation-delay: -2s; transform: rotate(-15deg) scale(1.8); }
+    .phoenix-logo-deco:nth-child(4)  { top: 26%;  right: 0%;   animation-duration: 46s; animation-delay: -4s; transform: rotate(10deg)  scale(1.6); }
+    .phoenix-logo-deco:nth-child(5)  { top: 58%;  left: 50%;   animation-duration: 50s; animation-delay: -6s; transform: translateX(-50%) rotate(8deg) scale(1.9); }
+    .phoenix-logo-deco:nth-child(6)  { bottom: 8%; right: 3%;  animation-duration: 40s; animation-delay: -4s; transform: rotate(14deg)  scale(1.6); }
+    .phoenix-logo-deco:nth-child(7)  { bottom: 6%; left: 2%;   animation-duration: 45s; animation-delay: -7s; transform: rotate(-12deg) scale(1.7); }
+
     /* shimmer animation */
     @keyframes softShine {
       0% { background-position: -200% 0; }
@@ -240,8 +231,9 @@
         word-break: keep-all;
       }
       .phoenix-logo-deco {
-        opacity: 0.15;
-        font-size: clamp(3rem, 15vw, 8rem);
+        opacity: 0.30;
+        width: clamp(5rem, 30vw, 14rem);
+        height: clamp(5rem, 30vw, 14rem);
       }
       .liquid-card {
         background: rgba(255, 255, 255, 0.6);
@@ -275,20 +267,15 @@
 </head>
 <body>
 
-  <!-- ENHANCED BACKGROUND: 12 FIRE PHOENIX LOGOS WITH PARALLAX & HIGHER OPACITY -->
-  <div class="phoenix-bg-deco">
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
-    <i class="fab fa-phoenix-framework phoenix-logo-deco"></i>
+  <!-- ENHANCED BACKGROUND: FEWER, LARGER FIRE PHOENIX LOGOS FOR VISIBILITY -->
+  <div class="phoenix-bg-deco" aria-hidden="true">
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
+    <img src="Phoenix28 logos/Favicon  1-1.png" alt="" class="phoenix-logo-deco" />
   </div>
 
   <main class="relative z-10 max-w-7xl mx-auto px-3 sm:px-5 md:px-6 py-4 md:py-10">
@@ -298,7 +285,7 @@
       <div class="flex flex-col lg:flex-row justify-between items-center gap-4">
         <div class="text-center lg:text-left">
           <div class="flex items-center justify-center lg:justify-start gap-2 mb-3">
-            <i class="fab fa-phoenix-framework text-3xl sm:text-4xl md:text-5xl text-green-600 float-soft drop-shadow-md" style="background: transparent; color: #22c55e;"></i>
+            <img src="Phoenix28 logos/Favicon 6.png" alt="Phoenix Logo" class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 float-soft drop-shadow-md" />
             <div>
               <span class="text-[10px] sm:text-[11px] font-black tracking-wider text-green-800 bg-white/70 backdrop-blur-sm px-3 py-1 badge-asym-premium border border-green-200 shadow-sm pulse-glow">
                 <i class="fas fa-bolt mr-1 text-green-500 text-xs"></i> Phoenix28.Tech inc · Pius Maina
@@ -418,14 +405,14 @@
     <!-- INFO CARDS WITH ICONS -->
     <div class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
       <div class="liquid-card edge-asym-3 p-3 sm:p-5 flex items-start gap-2 sm:gap-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-green-100/70 flex items-center justify-center border border-green-200"><i class="fas fa-certificate text-green-600 text-sm sm:text-base"></i></div><div><h3 class="font-extrabold text-gray-800 text-xs sm:text-sm"><i class="fas fa-check-circle text-green-600 mr-1"></i> Phoenix28.Tech Guarantee</h3><p class="text-gray-600 text-[10px] sm:text-xs"><i class="fas fa-clock mr-1"></i> 60-day premium support · <i class="fas fa-droplet mr-1"></i> Ultra-Premium UI · <i class="fas fa-shield-alt mr-1"></i> Edge-crafted security · <i class="fas fa-cubes mr-1"></i> 90+ tools</p></div></div>
-      <div class="liquid-card edge-asym-4 p-3 sm:p-5 flex items-start gap-2 sm:gap-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/70 flex items-center justify-center border border-green-200"><i class="fab fa-phoenix-framework text-green-600 text-sm sm:text-base"></i></div><div><h3 class="font-extrabold text-gray-800 text-xs sm:text-sm"><i class="fas fa-user-astronaut text-green-600 mr-1"></i> Pius Maina · Principal Architect</h3><p class="text-gray-600 text-[10px] sm:text-xs"><i class="fas fa-briefcase mr-1"></i> Phoenix28.Tech Inc · 14+ years full-stack · <i class="fas fa-droplet mr-1"></i> Premium interface specialist · <i class="fas fa-coins mr-1"></i> Direct KSh rates</p></div></div>
+      <div class="liquid-card edge-asym-4 p-3 sm:p-5 flex items-start gap-2 sm:gap-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/70 flex items-center justify-center border border-green-200"><img src="Phoenix28 logos/Favicon 6.png" alt="Phoenix Logo" class="w-6 h-6 sm:w-8 sm:h-8" /></div><div><h3 class="font-extrabold text-gray-800 text-xs sm:text-sm"><i class="fas fa-user-astronaut text-green-600 mr-1"></i> Pius Maina · Principal Architect</h3><p class="text-gray-600 text-[10px] sm:text-xs"><i class="fas fa-briefcase mr-1"></i> Phoenix28.Tech Inc · 14+ years full-stack · <i class="fas fa-droplet mr-1"></i> Premium interface specialist · <i class="fas fa-coins mr-1"></i> Direct KSh rates</p></div></div>
     </div>
 
     <div class="mt-6 text-center text-gray-500 text-[9px] sm:text-[10px] md:text-xs border-t border-green-200/40 pt-5 flex flex-wrap justify-center gap-x-4 gap-y-1">
       <span><i class="fas fa-bezier-curve text-green-500 mr-1"></i> Ultra-transparent lPremium UI</span>
       <span><i class="fas fa-leaf text-green-500 mr-1"></i> Green & White · Business modern</span>
       <span><i class="fas fa-mobile-alt mr-1 text-green-500"></i> 8K HD fluid responsive</span>
-      <span><i class="fab fa-phoenix-framework mr-1 text-green-600"></i> Phoenix28.Tech Inc</span>
+      <span><img src="Phoenix28 logos/Favicon 6.png" alt="Phoenix Logo" class="inline-block w-4 h-4 mr-1" /> Phoenix28.Tech Inc</span>
       <span><i class="fas fa-cubes mr-1 text-green-500"></i> 90+ integrated technologies</span>
       <span><i class="fas fa-globe mr-1 text-green-500"></i> Global standards</span>
     </div>
